@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getLocalData, removeLocalData } from "../../utils/storage";
-import LoanTable from "../../components/loanTable/LoanTable"
+import LoanTable from "../../components/loanTable/LoanTable";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -28,20 +28,19 @@ const Dashboard = () => {
   };
 
   const filteredLoans = loans.filter((loan) => {
-  const customerName = loan.customerName || "";
+    const customerName = loan.customerName || "";
 
-  const matchesSearch = customerName
-    .toLowerCase()
-    .includes(searchTerm.trim().toLowerCase());
+    const matchesSearch = customerName
+      .toLowerCase()
+      .includes(searchTerm.trim().toLowerCase());
 
-  const matchesStatus =
-    statusFilter === "All" || loan.status === statusFilter;
+    const matchesStatus =
+      statusFilter === "All" || loan.status === statusFilter;
 
-  const matchesType =
-    typeFilter === "All" || loan.loanType === typeFilter;
+    const matchesType = typeFilter === "All" || loan.loanType === typeFilter;
 
-  return matchesSearch && matchesStatus && matchesType;
-});
+    return matchesSearch && matchesStatus && matchesType;
+  });
 
   return (
     <div className="dashboard-container">

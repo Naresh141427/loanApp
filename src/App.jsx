@@ -12,6 +12,7 @@ import { getLocalData, setLocalData } from "./utils/storage";
 import { mockUsers, mockLoans } from "./data/mockData";
 
 function App() {
+  
   useEffect(() => {
     if (!getLocalData("users")) {
       setLocalData("users", mockUsers);
